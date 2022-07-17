@@ -1,8 +1,5 @@
 using System.Runtime.Serialization.Json;
 public static class RestaurantRepository {
-
-  public static List<Restaurant> Restaurants2 { get; set; } = new List<Restaurant>();
-
   public static List<Restaurant> Restaurants { get; set; } = new List<Restaurant>()
   {
     new Restaurant() {
@@ -56,7 +53,7 @@ public static class RestaurantRepository {
       Restaurants.Add(restaurant);
   }
 
-  public static Restaurant? GetBy(string id) {
+  public static Restaurant? GetById(string id) {
       return Restaurants.FirstOrDefault(r => r.Id == id);
   }
 

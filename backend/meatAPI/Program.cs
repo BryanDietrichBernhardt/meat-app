@@ -7,5 +7,8 @@ app.MapGet("/", () => "Welcome to Meat API!");
 app.MapGet("/restaurants", () => {
     return RestaurantRepository.GetAll();
   });
+app.MapGet("/restaurants/{id}", ([FromRoute] string id) => {
+  return RestaurantRepository.GetById(id);
+});
 
 app.Run();
