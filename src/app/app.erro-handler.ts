@@ -3,29 +3,11 @@ import { HttpErrorResponse } from '@angular/common/http'
 
 export class ErrorHandler {
   static handleError(error: HttpErrorResponse ) {
-    let errorMessage = '';
-    if (error.error instanceof ErrorEvent){
-      errorMessage = error.error.message;
+    if (error.status === 0){
+      console.error('Esqueceu de rodar a API, cabeção!');
     }else {
-      errorMessage = `Código do erro: ${error.status}, ` + `menssagem: ${error.message}`;
+      console.error(`API retornou o código ${error.status}, corpo da resposta: `, error.error);
     }
-    console.log(errorMessage)
-    return throwError(errorMessage)
+    return throwError(error)
   }
 }
-
-/*
-private handleError(error: HttpErrorResponse) {
-  if (error.status === 0) {
-    // A client-side or network error occurred. Handle it accordingly.
-    console.error('An error occurred:', error.error);
-  } else {
-    // The backend returned an unsuccessful response code.
-    // The response body may contain clues as to what went wrong.
-    console.error(
-      `Backend returned code ${error.status}, body was: `, error.error);
-  }
-  // Return an observable with a user-facing error message.
-  return throwError(() => new Error('Something bad happened; please try again later.'));
-}
-*/
