@@ -7,8 +7,9 @@ public class Restaurant {
     public string ImagePath { get; set; }
     public string About { get; set; }
     public string Hours { get; set; }
+    public List<Review> Reviews { get; set; }
 
-  public Restaurant(string id, string name, string category, string deliveryEstimate, double rating, string imagePath, string about, string hours)
+  public Restaurant(string id, string name, string category, string deliveryEstimate, double rating, string imagePath, string about, string hours, List<Review> reviews)
   {
     Id = id;
     Name = name;
@@ -18,6 +19,7 @@ public class Restaurant {
     ImagePath = imagePath;
     About = about;
     Hours = hours;
+    Reviews = reviews;
   }
 
   public Restaurant()

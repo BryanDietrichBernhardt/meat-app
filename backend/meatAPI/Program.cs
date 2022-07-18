@@ -10,5 +10,8 @@ app.MapGet("/restaurants", () => {
 app.MapGet("/restaurants/{id}", ([FromRoute] string id) => {
   return RestaurantRepository.GetById(id);
 });
+app.MapGet("/restaurants/{id}/reviews", ([FromRoute] string id) => {
+  return RestaurantRepository.GetReviewsOfRestaurant(id);
+});
 
 app.Run();
