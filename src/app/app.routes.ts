@@ -13,7 +13,7 @@ export const ROUTES: Routes = [
   {path: 'restaurants', component: RestaurantsComponent},
   {path: 'restaurants/:id', component: RestaurantDetailComponent,
     children: [
-      {path: '', redirectTo: 'menu', pathMatch: 'full'}
+      {path: '', redirectTo: 'menu', pathMatch: 'full'},
       {path: 'menu', component: MenuComponent},
       {path: 'reviews', component: ReviewsComponent}
     ]
