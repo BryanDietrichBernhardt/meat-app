@@ -36,8 +36,31 @@ public static class RestaurantRepository {
           Date = DateTime.Parse("03/03/2022"),
           Comments = "Não agradou muito meu paladar... Mas minha esposa gostou"
         }
-      }
       },
+      MenuItem = new List<MenuItem>() {
+        new MenuItem() {
+          Id = "1",
+          Name = "Marmita M",
+          Description = "Arroz, feijão, bife de frango, ovo frito e salada",
+          ImagePath = "assets/img/foods/ceasar.png",
+          Price = 12.90
+        },
+        new MenuItem() {
+          Id = "2",
+          Name = "Marmita G",
+          Description = "Arroz, feijão, bife de frango, ovo frito e salada",
+          ImagePath = "assets/img/foods/ceasar.png",
+          Price = 14.50
+        },
+        new MenuItem() {
+          Id = "3",
+          Name = "Pão Integral",
+          Description = "Pão caseiro da casa feito na hora!",
+          ImagePath = "assets/img/foods/bread.png",
+          Price = 14.50
+        }
+      }
+    },
     new Restaurant() {
       Id = "burger-house",
       Name = "Burger House",
@@ -46,7 +69,52 @@ public static class RestaurantRepository {
       Rating = 3.5,
       ImagePath = "assets/img/restaurants/burgerhouse.png",
       About = "40 anos se especializando em trash food.",
-      Hours = "Funciona todos os dias, de 10h às 22h"},
+      Hours = "Funciona todos os dias, de 10h às 22h",
+      Reviews = new List<Review>() {
+        new Review() {
+          Name = "Alberto",
+          Rating = 5,
+          Date = DateTime.Parse("15/02/2021"),
+          Comments = "Ótimo lugar para comer!"
+        },
+        new Review() {
+          Name = "Jhon",
+          Rating = 5,
+          Date = DateTime.Parse("22/07/2022"),
+          Comments = "Os doces são os melhores, super saborosos."
+        },
+        new Review() {
+          Name = "Laura",
+          Rating = 3.3,
+          Date = DateTime.Parse("06/11/2021"),
+          Comments = "Comida veio estragada!!! Pelo menos trocaram depois, mas foi muito demorado."
+        }
+      },
+      MenuItem = new List<MenuItem>() {
+        new MenuItem() {
+          Id = "1",
+          Name = "Fatia de Bolo",
+          Description = "Fatia de Bolo de Morango",
+          ImagePath = "assets/img/foods/cake.png",
+          Price = 12.90
+        },
+        new MenuItem() {
+          Id = "2",
+          Name = "Bolo de Morango",
+          Description = "Bolo recheado e coberto com morangos",
+          ImagePath = "assets/img/foods/straw.png",
+          Price = 14.50
+        },
+        new MenuItem() {
+          Id = "3",
+          Name = "Cup Cake de Choc. Branco",
+          Description = "Cup Cake de chocolate branco",
+          ImagePath = "assets/img/foods/cupcake.png",
+          Price = 14.50
+        }
+      }
+      },
+
     new Restaurant() {
       Id = "coffee-corner",
       Name = "Coffee Corner",
@@ -90,5 +158,9 @@ public static class RestaurantRepository {
 
   public static List<Review>? GetReviewsOfRestaurant(string id) {
     return Restaurants.FirstOrDefault(r => r.Id == id).Reviews;
+  }
+
+  public static List<MenuItem>? GetMenuOfRestaurant(string id) {
+    return Restaurants.FirstOrDefault(r => r.Id == id).MenuItem;
   }
 }
